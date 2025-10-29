@@ -22,7 +22,7 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
+   
 
     const geminiQuery =
       "Act as a movie Recommendation system suggest some movies for query : " +
@@ -37,21 +37,21 @@ const GptSearchBar = () => {
     if (!geminiResult.text) {
       // todo array
     }
-    console.log(geminiResult.text);
+    
     const geminiMovies = geminiResult.text.split(",");
 
     const promiseArray = geminiMovies.map((movie) => searchMovieTMDB(movie));
 
     const tmdbResult = await Promise.all(promiseArray);
-    console.log(tmdbResult);
+    
 
     dispatch(addGeminiMovieResult({moviesName:geminiMovies, moviesResult: tmdbResult}));
   };
 
   return (
-    <div className=" pt-[10%] flex justify-center">
+    <div className="pt-[45%] md:pt-[10%] flex justify-center">
       <form
-        className="w-1/2 bg-black grid grid-cols-12"
+        className=" w-full md:w-1/2 bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input

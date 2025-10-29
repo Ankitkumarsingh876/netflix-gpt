@@ -24,8 +24,8 @@ const Login = () => {
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    console.log(email.current.value);
-    console.log(password.current.value);
+   
+  
     const message = checkValidData(email.current.value, password.current.value);
     setErrormessage(message);
     if (message) return;
@@ -89,15 +89,15 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute ">
-        <img
+      <div className="fixed inset-0">
+        <img className="w-full h-screen object-cover"
           src= {BG_URL}
           alt="Background"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg opacity-80"
+        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg opacity-80"
       >
         <h1 className="font-bold text-3xl py-4 ">
           {isSignInForm ? "Sign In" : "Sign Up"}
